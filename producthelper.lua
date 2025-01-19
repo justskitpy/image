@@ -88,7 +88,7 @@ function downloadFile(url, path)
         f:write(response.text)
         f:close()
     else
-        print('Ошибка скачивания...')
+        print('ГЋГёГЁГЎГЄГ  Г±ГЄГ Г·ГЁГўГ Г­ГЁГї...')
     end
 end
 
@@ -105,7 +105,7 @@ imgui.OnInitialize(function()
     config.MergeMode = true
     config.PixelSnapH = true
     iconRanges = imgui.new.ImWchar[3](faicons.min_range, faicons.max_range, 100)
-    imgui.GetIO().Fonts:AddFontFromMemoryCompressedBase85TTF(faicons.get_font_data_base85('solid'), 25, config, iconRanges) -- solid - С‚РёРї РёРєРѕРЅРѕРє, С‚Р°Рє Р¶Рµ РµСЃС‚СЊ thin, regular, light Рё duotone
+    imgui.GetIO().Fonts:AddFontFromMemoryCompressedBase85TTF(faicons.get_font_data_base85('solid'), 25, config, iconRanges) -- solid - Г‘вЂљГђВёГђВї ГђВёГђВєГђВѕГђВЅГђВѕГђВє, Г‘вЂљГђВ°ГђВє ГђВ¶ГђВµ ГђВµГ‘ВЃГ‘вЂљГ‘Е’ thin, regular, light ГђВё duotone
     imgui.GetIO().IniFilename = nil;
     
     local savePath = getWorkingDirectory() .. '/ProductHelper/productlogo.png'
@@ -127,11 +127,11 @@ imgui.OnFrame(function() return menu[0] end,
 	imgui.SetCursorPos(imgui.ImVec2(15, 30))
 	imgui.SetWindowFontScale(0.65)
 	if imgui.BeginChild('sosal?', imgui.ImVec2(250, 100), true) then
-		imgui.Text(u8'Привет, пользователь ' .. faicons.USER)
-		imgui.Text(u8'Версия: v1.0 ' .. faicons.FLOPPY_DISK)
-		imgui.Text(u8'Автор скрипта: ')
+		imgui.Text(u8'ГЏГ°ГЁГўГҐГІ, ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гј ' .. faicons.USER)
+		imgui.Text(u8'Г‚ГҐГ°Г±ГЁГї: v1.0 ' .. faicons.FLOPPY_DISK)
+		imgui.Text(u8'ГЂГўГІГ®Г° Г±ГЄГ°ГЁГЇГІГ : ')
 		imgui.SetCursorPos(imgui.ImVec2(135, 55))
-		if imgui.Button(u8'ссылка', imgui.ImVec2(80, 30)) then
+		if imgui.Button(u8'Г±Г±Г»Г«ГЄГ ', imgui.ImVec2(80, 30)) then
 		openLink('https://t.me/jskiptymods')
 		end
 		imgui.EndChild()
@@ -145,48 +145,48 @@ imgui.OnFrame(function() return menu[0] end,
     
 	imgui.Image(image, imgui.ImVec2(220, 220))
 	imgui.SetCursorPos(imgui.ImVec2(15, 150))
-	if imgui.Button(u8'Главная ' .. faicons.HOUSE, imgui.ImVec2(250, 60)) then tab = 1 end
+	if imgui.Button(u8'ГѓГ«Г ГўГ­Г Гї ' .. faicons.HOUSE, imgui.ImVec2(250, 60)) then tab = 1 end
 	imgui.SameLine()
-	if imgui.Button(u8'Настройки ' .. faicons.GEAR, imgui.ImVec2(250, 60)) then tab = 2 end
+	if imgui.Button(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ' .. faicons.GEAR, imgui.ImVec2(250, 60)) then tab = 2 end
 	imgui.SameLine()
-	if imgui.Button(u8'Информация ' .. faicons.CIRCLE_INFO, imgui.ImVec2(250, 60)) then tab = 3 end
+	if imgui.Button(u8'Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї ' .. faicons.CIRCLE_INFO, imgui.ImVec2(250, 60)) then tab = 3 end
 	
 	imgui.SetCursorPos(imgui.ImVec2(630, 30))
-	if imgui.Button(u8'Закрыть ' .. faicons.CIRCLE_XMARK, imgui.ImVec2(150, 60)) then menu[0] = false end
+	if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј ' .. faicons.CIRCLE_XMARK, imgui.ImVec2(150, 60)) then menu[0] = false end
 	
 	imgui.SetCursorPos(imgui.ImVec2(15, 235))
 	if imgui.BeginChild('nazvanie', imgui.ImVec2(765, -1), true) then
 	
 	if tab == 1 then
 	
-	imgui.CenterText(u8'Статистика')
+	imgui.CenterText(u8'Г‘ГІГ ГІГЁГ±ГІГЁГЄГ ')
 	
 	imgui.Separator()
 	
-	if imgui.ToggleButton(u8'Информационное окно', infokno) then
+	if imgui.ToggleButton(u8'Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГ®Г­Г­Г®ГҐ Г®ГЄГ­Г®', infokno) then
 	infookno[0] = not infookno[0]
 	end
 	if infookno[0] then
 	
-	if imgui.ToggleButton(u8'Считать заработанную сумму', zpfull) then
+	if imgui.ToggleButton(u8'Г‘Г·ГЁГІГ ГІГј Г§Г Г°Г ГЎГ®ГІГ Г­Г­ГіГѕ Г±ГіГ¬Г¬Гі', zpfull) then
 	ini.cfg.zpfull = zpfull[0]
 	end
 	
 	if zpfull[0] then
-                    if imgui.InputInt(u8'Цена за ларец', buffers.larecsalary, 1, 10) then
+                    if imgui.InputInt(u8'Г–ГҐГ­Г  Г§Г  Г«Г Г°ГҐГ¶', buffers.larecsalary, 1, 10) then
                         ini.cfg.larecsalary = buffers.larecsalary[0]
                     end
     end
                     
-	if imgui.ToggleButton(u8'Считать выпавшие ларцы', larecc) then
+	if imgui.ToggleButton(u8'Г‘Г·ГЁГІГ ГІГј ГўГ»ГЇГ ГўГёГЁГҐ Г«Г Г°Г¶Г»', larecc) then
 	ini.cfg.larecc = larecc[0]
 	end
 	
-	if imgui.ToggleButton(u8'Считать выполненные рейсы', reisi) then
+	if imgui.ToggleButton(u8'Г‘Г·ГЁГІГ ГІГј ГўГ»ГЇГ®Г«Г­ГҐГ­Г­Г»ГҐ Г°ГҐГ©Г±Г»', reisi) then
 	ini.cfg.reisi = reisi[0]
 	end
 	
-	if imgui.ToggleButton(u8'Время (не серверное)', timer) then
+	if imgui.ToggleButton(u8'Г‚Г°ГҐГ¬Гї (Г­ГҐ Г±ГҐГ°ГўГҐГ°Г­Г®ГҐ)', timer) then
 	ini.cfg.timer = timer[0]
 	end
 	
@@ -196,37 +196,37 @@ imgui.OnFrame(function() return menu[0] end,
 	
 	imgui.Separator()
 	
-	imgui.CenterText(u8'Выгодность рейсов')
+	imgui.CenterText(u8'Г‚Г»ГЈГ®Г¤Г­Г®Г±ГІГј Г°ГҐГ©Г±Г®Гў')
 	
 	imgui.Separator()
 	
-	if imgui.ToggleButton(u8'Рассчёт выгодности рейса', vigod) then
+	if imgui.ToggleButton(u8'ГђГ Г±Г±Г·ВёГІ ГўГ»ГЈГ®Г¤Г­Г®Г±ГІГЁ Г°ГҐГ©Г±Г ', vigod) then
 	end
 	
 	if vigod[0] then
 	
 	imgui.Separator()
-	if imgui.InputInt(u8'Масса', int) then
+	if imgui.InputInt(u8'ГЊГ Г±Г±Г ', int) then
 	ini.cfg.int = int[0]
 	save()
 	end
 	
-	if imgui.InputInt(u8'Расстояние', int2) then
+	if imgui.InputInt(u8'ГђГ Г±Г±ГІГ®ГїГ­ГЁГҐ', int2) then
 	ini.cfg.int2 = int2[0]
 	save()
 	end
 	
-	if imgui.Button(u8'Рассчитать') then
+	if imgui.Button(u8'ГђГ Г±Г±Г·ГЁГІГ ГІГј') then
 		result = (ini.cfg.int / ini.cfg.int2) * 10
 	end
 	
 	imgui.Separator()
 	
-	imgui.Text(u8'Возможный процент выгодности: ' .. result)
+	imgui.Text(u8'Г‚Г®Г§Г¬Г®Г¦Г­Г»Г© ГЇГ°Г®Г¶ГҐГ­ГІ ГўГ»ГЈГ®Г¤Г­Г®Г±ГІГЁ: ' .. result)
 	
 	imgui.Separator()
 	
-	imgui.Text(u8'Если процент больше 100-200 - рейс выгоден')
+	imgui.Text(u8'Г…Г±Г«ГЁ ГЇГ°Г®Г¶ГҐГ­ГІ ГЎГ®Г«ГјГёГҐ 100-200 - Г°ГҐГ©Г± ГўГ»ГЈГ®Г¤ГҐГ­')
 	
 	imgui.Separator()
 	end
@@ -235,35 +235,35 @@ imgui.OnFrame(function() return menu[0] end,
 	
 	imgui.Separator()
 	
-	imgui.CenterText(u8'Вспомогательные функции')
+	imgui.CenterText(u8'Г‚Г±ГЇГ®Г¬Г®ГЈГ ГІГҐГ«ГјГ­Г»ГҐ ГґГіГ­ГЄГ¶ГЁГЁ')
 	
 	imgui.Separator()
 	
-	if imgui.ToggleButton(u8'Пропускать лишние диалоги', skipd) then
-	imgui.OpenPopup(u8'Предупреждение!')
+	if imgui.ToggleButton(u8'ГЏГ°Г®ГЇГіГ±ГЄГ ГІГј Г«ГЁГёГ­ГЁГҐ Г¤ГЁГ Г«Г®ГЈГЁ', skipd) then
+	imgui.OpenPopup(u8'ГЏГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ!')
 	ini.cfg.skipd = skipd[0]
 	end
 	
 	
-	if imgui.ToggleButton(u8'Авто-гудок на выбор заказов', autog) then
-	imgui.OpenPopup(u8'Предупреждение!')
+	if imgui.ToggleButton(u8'ГЂГўГІГ®-ГЈГіГ¤Г®ГЄ Г­Г  ГўГ»ГЎГ®Г° Г§Г ГЄГ Г§Г®Гў', autog) then
+	imgui.OpenPopup(u8'ГЏГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ!')
 	ini.cfg.autog = autog[0]
 	end
 	
 	imgui.SetNextWindowSize(imgui.ImVec2(500, 300), imgui.Cond.FirstUseEver)
-        if imgui.BeginPopupModal(u8'Предупреждение!', _, imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoResize) then
+        if imgui.BeginPopupModal(u8'ГЏГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ!', _, imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoResize) then
         
-        imgui.CenterText(u8'Данная функция может быть запрещена')
-        imgui.CenterText(u8'на многих серверах!')
-        imgui.CenterText(u8'Рекомендуем отключить функцию!')
+        imgui.CenterText(u8'Г„Г Г­Г­Г Гї ГґГіГ­ГЄГ¶ГЁГї Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј Г§Г ГЇГ°ГҐГ№ГҐГ­Г ')
+        imgui.CenterText(u8'Г­Г  Г¬Г­Г®ГЈГЁГµ Г±ГҐГ°ГўГҐГ°Г Гµ!')
+        imgui.CenterText(u8'ГђГҐГЄГ®Г¬ГҐГ­Г¤ГіГҐГ¬ Г®ГІГЄГ«ГѕГ·ГЁГІГј ГґГіГ­ГЄГ¶ГЁГѕ!')
         imgui.Separator()
-        if imgui.Button(u8"Отключить функцию", imgui.ImVec2(-1, 50)) then
+        if imgui.Button(u8"ГЋГІГЄГ«ГѕГ·ГЁГІГј ГґГіГ­ГЄГ¶ГЁГѕ", imgui.ImVec2(-1, 50)) then
         autog[0] = false
         skipd[0] = false
         save()
         imgui.CloseCurrentPopup()
         end
-        if imgui.Button(u8'Закрыть', imgui.ImVec2(-1, 50)) then
+        if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј', imgui.ImVec2(-1, 50)) then
         imgui.CloseCurrentPopup()
         end
         
@@ -275,11 +275,11 @@ imgui.OnFrame(function() return menu[0] end,
 	
 	imgui.Separator()
 	
-	imgui.CenterText(u8'Логирование')
+	imgui.CenterText(u8'Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ')
 	
 	imgui.Separator()
 	
-	if imgui.ToggleButton(u8'Окно с логами', oknolog) then
+	if imgui.ToggleButton(u8'ГЋГЄГ­Г® Г± Г«Г®ГЈГ Г¬ГЁ', oknolog) then
 	LogOkno[0] = not LogOkno[0]
 	end
 	
@@ -288,23 +288,23 @@ imgui.OnFrame(function() return menu[0] end,
 	
 	imgui.Separator()
 	
-	imgui.CenterText(u8'Сменить погоду и время')
+	imgui.CenterText(u8'Г‘Г¬ГҐГ­ГЁГІГј ГЇГ®ГЈГ®Г¤Гі ГЁ ГўГ°ГҐГ¬Гї')
 	
 	imgui.Separator()
 	
-	if imgui.Button(u8'Сменить', imgui.ImVec2(-1, 50)) then
-	imgui.OpenPopup(u8'Смена погоды и времени')
+	if imgui.Button(u8'Г‘Г¬ГҐГ­ГЁГІГј', imgui.ImVec2(-1, 50)) then
+	imgui.OpenPopup(u8'Г‘Г¬ГҐГ­Г  ГЇГ®ГЈГ®Г¤Г» ГЁ ГўГ°ГҐГ¬ГҐГ­ГЁ')
 	end
 	
 	imgui.SetNextWindowSize(imgui.ImVec2(500, 230), imgui.Cond.FirstUseEver)
-        if imgui.BeginPopupModal(u8'Смена погоды и времени', _, imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoResize) then
+        if imgui.BeginPopupModal(u8'Г‘Г¬ГҐГ­Г  ГЇГ®ГЈГ®Г¤Г» ГЁ ГўГ°ГҐГ¬ГҐГ­ГЁ', _, imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoResize) then
         
-        if imgui.Button(u8'Установить погоду') then
+        if imgui.Button(u8'Г“Г±ГІГ Г­Г®ГўГЁГІГј ГЇГ®ГЈГ®Г¤Гі') then
           forceWeatherNow(WeatherAndTime.weather[0])
         end
         imgui.SameLine()
         imgui.SetNextItemWidth(imgui.GetFontSize() * 5)
-        if imgui.InputInt(u8'Погода', WeatherAndTime.weather, 1, 10) then
+        if imgui.InputInt(u8'ГЏГ®ГЈГ®Г¤Г ', WeatherAndTime.weather, 1, 10) then
           if WeatherAndTime.weather[0] < 0 then
             WeatherAndTime.weather[0] = 0
           end
@@ -313,7 +313,7 @@ imgui.OnFrame(function() return menu[0] end,
           end
         end
 
-        if imgui.Button(u8'Установить время') then
+        if imgui.Button(u8'Г“Г±ГІГ Г­Г®ГўГЁГІГј ГўГ°ГҐГ¬Гї') then
           if WeatherAndTime.thread ~= nil then
             WeatherAndTime.thread:terminate()
           end
@@ -330,7 +330,7 @@ imgui.OnFrame(function() return menu[0] end,
         end
         imgui.SameLine()
         imgui.SetNextItemWidth(imgui.GetFontSize() * 5)
-        if imgui.InputInt(u8'Время', WeatherAndTime.time, 1, 5) then
+        if imgui.InputInt(u8'Г‚Г°ГҐГ¬Гї', WeatherAndTime.time, 1, 5) then
           if WeatherAndTime.time[0] < 0 then
             WeatherAndTime.time[0] = 0
           end
@@ -339,7 +339,7 @@ imgui.OnFrame(function() return menu[0] end,
           end
         end
         
-        if imgui.Button(u8'Закрыть', imgui.ImVec2(-1, 50)) then
+        if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј', imgui.ImVec2(-1, 50)) then
         imgui.CloseCurrentPopup()
         end
         
@@ -348,7 +348,7 @@ imgui.OnFrame(function() return menu[0] end,
         
 	elseif tab == 2 then
 	
-	imgui.CenterText(u8'Настройки')
+	imgui.CenterText(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ')
 	
 	imgui.Separator()
 	
@@ -361,26 +361,26 @@ imgui.OnFrame(function() return menu[0] end,
             end
             
             imgui.Separator()
-            imgui.CenterText(u8'Своя активация')
+            imgui.CenterText(u8'Г‘ГўГ®Гї Г ГЄГІГЁГўГ Г¶ГЁГї')
             imgui.Separator()
-            imgui.InputTextWithHint(u8"Активация", u8"(без слеша)", activation, 256)
-	if imgui.Button(faicons('CHECK') .. u8" Сохранить") then
+            imgui.InputTextWithHint(u8"ГЂГЄГІГЁГўГ Г¶ГЁГї", u8"(ГЎГҐГ§ Г±Г«ГҐГёГ )", activation, 256)
+	if imgui.Button(faicons('CHECK') .. u8" Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 		ini.cfg.activation = u8:decode(str(activation))
 		save()
-		msg("Сохранено! Активация - /"..ini.cfg.activation)
+		msg("Г‘Г®ГµГ°Г Г­ГҐГ­Г®! ГЂГЄГІГЁГўГ Г¶ГЁГї - /"..ini.cfg.activation)
 		script_reload()
 	end
 		
 		imgui.Separator()
-        imgui.CenterText(u8'Тема хелпера')
+        imgui.CenterText(u8'Г’ГҐГ¬Г  ГµГҐГ«ГЇГҐГ°Г ')
         imgui.Separator()
-	if imgui.RadioButtonIntPtr(u8'Тёмная тема', theme, 1) then
+	if imgui.RadioButtonIntPtr(u8'Г’ВёГ¬Г­Г Гї ГІГҐГ¬Г ', theme, 1) then
 		SoftDarkTheme()
 		ini.cfg.theme = 1
 		save()
 	end
 	
-	if imgui.RadioButtonIntPtr(u8'Белая тема', theme, 2) then
+	if imgui.RadioButtonIntPtr(u8'ГЃГҐГ«Г Гї ГІГҐГ¬Г ', theme, 2) then
 		ini.cfg.theme = 2
 		SoftLightTheme()
 		save()
@@ -389,7 +389,7 @@ imgui.OnFrame(function() return menu[0] end,
             
 	elseif tab == 3 then
 	
-	imgui.CenterText(u8'Информация')
+	imgui.CenterText(u8'Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї')
 	end
             
 		imgui.EndChild()
@@ -407,18 +407,18 @@ imgui.OnFrame(function() return LogOkno[0] end, function(oknoochko)
   		
   		local filter = imgui.ImGuiTextFilter()
     
-    if imgui.Button(u8'Выбрать день для просмотра лога', imgui.ImVec2(430, 50)) then
+    if imgui.Button(u8'Г‚Г»ГЎГ°Г ГІГј Г¤ГҐГ­Гј Г¤Г«Гї ГЇГ°Г®Г±Г¬Г®ГІГ°Г  Г«Г®ГЈГ ', imgui.ImVec2(430, 50)) then
         LogMenu[0] = not LogMenu[0]
     end
 	
 	imgui.SameLine()
-	if imgui.Button(u8'Закрыть', imgui.ImVec2(130, 50)) then
+	if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј', imgui.ImVec2(130, 50)) then
 	LogOkno[0] = false
 	oknolog[0] = false
 	end
 
     if Param then
-        imgui.CenterText(u8'Лог за день номер: ' .. Param)
+        imgui.CenterText(u8'Г‹Г®ГЈ Г§Г  Г¤ГҐГ­Гј Г­Г®Г¬ГҐГ°: ' .. Param)
         imgui.Separator()
 		
 		imgui.SetWindowFontScale(0.6)
@@ -446,7 +446,7 @@ imgui.OnFrame(function() return LogOkno[0] end, function(oknoochko)
                 end
             end
         else
-            imgui.CenterText(u8"Лог за этот день не найден!")
+            imgui.CenterText(u8"Г‹Г®ГЈ Г§Г  ГЅГІГ®ГІ Г¤ГҐГ­Гј Г­ГҐ Г­Г Г©Г¤ГҐГ­!")
             
         end
     end
@@ -462,12 +462,12 @@ imgui.OnFrame(function() return LogMenu[0] end, function(oknoochko)
         imgui.SetNextWindowSize(imgui.ImVec2(200, -1))
   	  imgui.Begin(u8'chooselogokno', LogMenu, imgui.WindowFlags.NoTitleBar)
 		
-		if imgui.Button(u8"Закрыть", imgui.ImVec2(-1, 50)) then
+		if imgui.Button(u8"Г‡Г ГЄГ°Г»ГІГј", imgui.ImVec2(-1, 50)) then
 		LogMenu[0] = false
 		end
 		
 for i = 1, 31 do
-    if imgui.Button(u8"Логи дня " .. i) then
+    if imgui.Button(u8"Г‹Г®ГЈГЁ Г¤Г­Гї " .. i) then
     
         Param = i
         local filePath = getWorkingDirectory() .. "/DBHelper/" .. i .. ".log"
@@ -475,7 +475,7 @@ for i = 1, 31 do
         local openlog = io.open(filePath, 'r')
         
         if not openlog then
-            print(u8"Не удалось открыть файл: " .. filePath)
+            print(u8"ГЌГҐ ГіГ¤Г Г«Г®Г±Гј Г®ГІГЄГ°Г»ГІГј ГґГ Г©Г«: " .. filePath)
             return
         end
         
@@ -483,7 +483,7 @@ for i = 1, 31 do
         
         if not textlog or textlog == "" then
         	
-            msg("Файл пустой или нет содержимого")
+            msg("Г”Г Г©Г« ГЇГіГ±ГІГ®Г© ГЁГ«ГЁ Г­ГҐГІ Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГЈГ®")
             openlog:close()
             return
         end
@@ -507,17 +507,17 @@ imgui.OnFrame(function() return infookno[0] end,
 	
 			
 	local zpfully = ini.cfg.zarp + ini.cfg.larec * ini.cfg.larecsalary
-    if reisi[0] then imgui.CenterText(u8'Сделано рейсов: '..superbusya(ini.cfg.reic)) end
+    if reisi[0] then imgui.CenterText(u8'Г‘Г¤ГҐГ«Г Г­Г® Г°ГҐГ©Г±Г®Гў: '..superbusya(ini.cfg.reic)) end
     imgui.Separator()
-    if larecc[0] then imgui.CenterText(u8'Выпало ларцов: '..superbusya(ini.cfg.larec)) end   
+    if larecc[0] then imgui.CenterText(u8'Г‚Г»ГЇГ Г«Г® Г«Г Г°Г¶Г®Гў: '..superbusya(ini.cfg.larec)) end   
     imgui.Separator()
-    if zpfull[0] then imgui.CenterText(u8'Заработано: '..superbusya(zpfully)..'$') end
+    if zpfull[0] then imgui.CenterText(u8'Г‡Г Г°Г ГЎГ®ГІГ Г­Г®: '..superbusya(zpfully)..'$') end
     imgui.Separator()
     if timer[0] then imgui.CenterText(os.date("%H:%M:%S")) end
     imgui.Separator()
     
     imgui.SetCursorPos(imgui.ImVec2(15, 210))
-    if imgui.Button(u8'Очистить', imgui.ImVec2(-1, 70)) then
+    if imgui.Button(u8'ГЋГ·ГЁГ±ГІГЁГІГј', imgui.ImVec2(-1, 70)) then
         ini.cfg.larec = 0
         ini.cfg.reic = 0
         ini.cfg.zarp = 0
@@ -530,25 +530,25 @@ end)
 function create_logs_for_month()
     local lfs = require("lfs")
     
-    -- Проверка и создание директории DBHelper, если она не существует
+    -- ГЏГ°Г®ГўГҐГ°ГЄГ  ГЁ Г±Г®Г§Г¤Г Г­ГЁГҐ Г¤ГЁГ°ГҐГЄГІГ®Г°ГЁГЁ DBHelper, ГҐГ±Г«ГЁ Г®Г­Г  Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ
     if not lfs.attributes("ProductHelper") then
         lfs.mkdir("ProductHelper")
     end
 
-    -- Создание файлов для всех дней месяца
+    -- Г‘Г®Г§Г¤Г Г­ГЁГҐ ГґГ Г©Г«Г®Гў Г¤Г«Гї ГўГ±ГҐГµ Г¤Г­ГҐГ© Г¬ГҐГ±ГїГ¶Г 
     for day = 1, 31 do
         local filename = string.format("%d.log", day)
         local file_path = "ProductHelper/" .. filename
         
-        -- Проверка, существует ли файл
+        -- ГЏГ°Г®ГўГҐГ°ГЄГ , Г±ГіГ№ГҐГ±ГІГўГіГҐГІ Г«ГЁ ГґГ Г©Г«
         local file = io.open(file_path, "r")
         if not file then
-            file = io.open(file_path, "w") -- Создание файла, если его нет
+            file = io.open(file_path, "w") -- Г‘Г®Г§Г¤Г Г­ГЁГҐ ГґГ Г©Г«Г , ГҐГ±Г«ГЁ ГҐГЈГ® Г­ГҐГІ
             if file then
-                print(u8"Создан новый лог: " .. filename)
+                print(u8"Г‘Г®Г§Г¤Г Г­ Г­Г®ГўГ»Г© Г«Г®ГЈ: " .. filename)
                 file:close()
             else
-                print(u8"Не удалось создать файл: " .. filename)
+                print(u8"ГЌГҐ ГіГ¤Г Г«Г®Г±Гј Г±Г®Г§Г¤Г ГІГј ГґГ Г©Г«: " .. filename)
             end
         else
             file:close()
@@ -562,39 +562,39 @@ function save_log(logtext)
     local filename = string.format("%d.log", current_day)
     local file_path = "ProductHelper/" .. filename
     
-    local file = io.open(file_path, "a") -- Открытие файла в режиме добавления
+    local file = io.open(file_path, "a") -- ГЋГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Гў Г°ГҐГ¦ГЁГ¬ГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї
     
     if file then
         local current_time = os.date("%Y-%m-%d %H:%M:%S")
         file:write(current_time .. " [" .. logtext .. "] \n")
         file:close()
     else
-        print(u8"Ошибка при открытии файла для записи:", file_path)
+        print(u8"ГЋГёГЁГЎГЄГ  ГЇГ°ГЁ Г®ГІГЄГ°Г»ГІГЁГЁ ГґГ Г©Г«Г  Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ:", file_path)
     end
 end
 
--- Создание логов для 31 дня
+-- Г‘Г®Г§Г¤Г Г­ГЁГҐ Г«Г®ГЈГ®Гў Г¤Г«Гї 31 Г¤Г­Гї
 create_logs_for_month()
 
 function ev.onShowDialog(id, style, title, button1, button2, text)
-    if skipd[0] and (id == 0 and text:find("Вы успешно")) then
+    if skipd[0] and (id == 0 and text:find("Г‚Г» ГіГ±ГЇГҐГёГ­Г®")) then
         sampSendDialogResponse(0, 1, 0, 0)
         return false
     end    
 end
 
 function ev.onServerMessage(color, text)
-	if text:find('премия за доставку' and '- $(%d+)') then	
-	local salary = text:match('премия за доставку' and '- $(%d+)')
+	if text:find('ГЇГ°ГҐГ¬ГЁГї Г§Г  Г¤Г®Г±ГІГ ГўГЄГі' and '- $(%d+)') then	
+	local salary = text:match('ГЇГ°ГҐГ¬ГЁГї Г§Г  Г¤Г®Г±ГІГ ГўГЄГі' and '- $(%d+)')
         ini.cfg.zarp = ini.cfg.zarp + tonumber(salary)
         ini.cfg.reic = ini.cfg.reic + 1
-    save_log("Рейс номер " .. ini.cfg.reic .. " окончен! Ваша зарплата: $" .. salary)
-    save_log("Заработано в общем: $" .. ini.cfg.zarp)
+    save_log("ГђГҐГ©Г± Г­Г®Г¬ГҐГ° " .. ini.cfg.reic .. " Г®ГЄГ®Г­Г·ГҐГ­! Г‚Г ГёГ  Г§Г Г°ГЇГ«Г ГІГ : $" .. salary)
+    save_log("Г‡Г Г°Г ГЎГ®ГІГ Г­Г® Гў Г®ГЎГ№ГҐГ¬: $" .. ini.cfg.zarp)
     end
     
-    if text:find("Вам был добавлен предмет 'Ларец") then	
+    if text:find("Г‚Г Г¬ ГЎГ»Г« Г¤Г®ГЎГ ГўГ«ГҐГ­ ГЇГ°ГҐГ¤Г¬ГҐГІ 'Г‹Г Г°ГҐГ¶") then	
     ini.cfg.larec = ini.cfg.larec + 1
-    save_log("Вам выпал ларец, поздравляю! Ларец по счёту: " .. ini.cfg.larec)
+    save_log("Г‚Г Г¬ ГўГ»ГЇГ Г« Г«Г Г°ГҐГ¶, ГЇГ®Г§Г¤Г°Г ГўГ«ГїГѕ! Г‹Г Г°ГҐГ¶ ГЇГ® Г±Г·ВёГІГі: " .. ini.cfg.larec)
     end
 end
 
@@ -607,17 +607,17 @@ function main()
 	if not isSampfuncsLoaded() or not isSampLoaded() then return end
     while not isSampAvailable() do wait(100) end
     while not sampIsLocalPlayerSpawned() do wait(0) end
-    msg('Привет, пользователь!')
+    msg('ГЏГ°ГЁГўГҐГІ, ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гј!')
     wait(0)
-    msg('Хелпер на развозчика продуктов успешно загружен! Активация - /' ..ini.cfg.activation)
+    msg('Г•ГҐГ«ГЇГҐГ° Г­Г  Г°Г Г§ГўГ®Г§Г·ГЁГЄГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГіГ±ГЇГҐГёГ­Г® Г§Г ГЈГ°ГіГ¦ГҐГ­! ГЂГЄГІГЁГўГ Г¶ГЁГї - /' ..ini.cfg.activation)
     sampRegisterChatCommand(ini.cfg.activation, function() 
 			lua_thread.create(function()
             if menu[0] then
-                msg('Выключаем...')
+                msg('Г‚Г»ГЄГ«ГѕГ·Г ГҐГ¬...')
                 wait(1000)
                 menu[0] = false
             else
-                msg('Запускаем!')
+                msg('Г‡Г ГЇГіГ±ГЄГ ГҐГ¬!')
                 wait(1000)
                 menu[0] = true
             end
@@ -640,12 +640,12 @@ function main()
                     local text, color, posX, posY, posZ, distance, ignoreWalls, playerId, vehicleId = sampGet3dTextInfoById(id)
                     local xf, yf, zf = getCharCoordinates(PLAYER_PED)
                     local dist = getDistanceBetweenCoords3d(xf, yf, zf, posX, posY, posZ)
-                    if text:find('Загрузка товаров') then
+                    if text:find('Г‡Г ГЈГ°ГіГ§ГЄГ  ГІГ®ГўГ Г°Г®Гў') then
                         if dist < 5 then
     local dataa = samp_create_sync_data(isCharOnFoot(PLAYER_PED) and 'player' or 'vehicle')
     local x, y, z = getCharCoordinates(PLAYER_PED)
 
-    -- Настраиваем данные для отправки
+    -- ГЌГ Г±ГІГ°Г ГЁГўГ ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г¤Г«Гї Г®ГІГЇГ°Г ГўГЄГЁ
     wait(2)
     dataa.specialKey = isCharOnFoot(PLAYER_PED) and SPECIAL_KEYS.H or dataa.specialKey
     dataa.keysData = isCharOnFoot(PLAYER_PED) and dataa.keysData or 2
@@ -777,7 +777,7 @@ end
 
 function script_unload()
 lua_thread.create(function()
-msg("Скрипт будет отключен через 3 секунды!")
+msg("Г‘ГЄГ°ГЁГЇГІ ГЎГіГ¤ГҐГІ Г®ГІГЄГ«ГѕГ·ГҐГ­ Г·ГҐГ°ГҐГ§ 3 Г±ГҐГЄГіГ­Г¤Г»!")
 wait(1000)
 msg("1...")
 wait(1000)
@@ -785,7 +785,7 @@ msg("2...")
 wait(1000)
 msg("3...")
 wait(200)
-msg("Отключение...")
+msg("ГЋГІГЄГ«ГѕГ·ГҐГ­ГЁГҐ...")
 wait(500)
 thisScript():unload()
 end)
@@ -793,7 +793,7 @@ end
 
 function script_reload()
 lua_thread.create(function()
-msg("Скрипт будет перезагружен через 3 секунды!")
+msg("Г‘ГЄГ°ГЁГЇГІ ГЎГіГ¤ГҐГІ ГЇГҐГ°ГҐГ§Г ГЈГ°ГіГ¦ГҐГ­ Г·ГҐГ°ГҐГ§ 3 Г±ГҐГЄГіГ­Г¤Г»!")
 wait(1000)
 msg("1...")
 wait(1000)
@@ -801,7 +801,7 @@ msg("2...")
 wait(1000)
 msg("3...")
 wait(200)
-msg("Перезагрузка...")
+msg("ГЏГҐГ°ГҐГ§Г ГЈГ°ГіГ§ГЄГ ...")
 wait(500)
 thisScript():reload()
 end)
@@ -895,7 +895,7 @@ function SoftLightTheme()
     style.WindowTitleAlign = imgui.ImVec2(0.5, 0.5)
     style.ButtonTextAlign = imgui.ImVec2(0.5, 0.5)
 
-    -- Тексты и базовые цвета
+    -- Г’ГҐГЄГ±ГІГ» ГЁ ГЎГ Г§Г®ГўГ»ГҐ Г¶ГўГҐГІГ 
     style.Colors[imgui.Col.Text]                   = imgui.ImVec4(0.10, 0.10, 0.10, 1.00)
     style.Colors[imgui.Col.TextDisabled]           = imgui.ImVec4(0.60, 0.60, 0.60, 1.00)
     style.Colors[imgui.Col.WindowBg]               = imgui.ImVec4(0.95, 0.95, 0.90, 1.00)
@@ -903,7 +903,7 @@ function SoftLightTheme()
     style.Colors[imgui.Col.PopupBg]                = imgui.ImVec4(0.95, 0.90, 0.85, 1.00)
     style.Colors[imgui.Col.Border]                 = imgui.ImVec4(0.80, 0.70, 0.60, 1.00)
 
-    -- Основные элементы с оранжевым оттенком
+    -- ГЋГ±Г­Г®ГўГ­Г»ГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ» Г± Г®Г°Г Г­Г¦ГҐГўГ»Г¬ Г®ГІГІГҐГ­ГЄГ®Г¬
     style.Colors[imgui.Col.FrameBg]                = imgui.ImVec4(0.95, 0.80, 0.70, 1.00)
     style.Colors[imgui.Col.FrameBgHovered]         = imgui.ImVec4(0.98, 0.85, 0.75, 1.00)
     style.Colors[imgui.Col.FrameBgActive]          = imgui.ImVec4(0.90, 0.75, 0.60, 1.00)
@@ -924,7 +924,7 @@ function SoftLightTheme()
     style.Colors[imgui.Col.TabHovered]             = imgui.ImVec4(0.98, 0.85, 0.75, 1.00)
     style.Colors[imgui.Col.TabActive]              = imgui.ImVec4(0.95, 0.80, 0.70, 1.00)
 
-    -- Элементы ползунков и выделения
+    -- ГќГ«ГҐГ¬ГҐГ­ГІГ» ГЇГ®Г«Г§ГіГ­ГЄГ®Гў ГЁ ГўГ»Г¤ГҐГ«ГҐГ­ГЁГї
     style.Colors[imgui.Col.ResizeGrip]             = imgui.ImVec4(0.85, 0.60, 0.35, 1.00)
     style.Colors[imgui.Col.ResizeGripHovered]      = imgui.ImVec4(0.95, 0.70, 0.45, 1.00)
     style.Colors[imgui.Col.ResizeGripActive]       = imgui.ImVec4(0.90, 0.75, 0.60, 1.00)
