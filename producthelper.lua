@@ -1,6 +1,6 @@
 local imgui = require 'mimgui' 
 local encoding = require 'encoding'
-encoding.default = 'CP1251'
+encoding.default = 'UTF8'
 local u8 = encoding.UTF8
 local requests = require "requests"
 local new = imgui.new
