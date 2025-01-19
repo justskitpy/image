@@ -21,8 +21,8 @@ local faicons = require 'fAwesome6'
 local ltn12 = require "ltn12"
 local http = require "socket.http"
 
-local lmPath = "producthelper.lua"
-local lmUrl = "https://raw.githubusercontent.com/justskitpy/image/main/producthelper.lua"
+local lmPath = "producthelperr.lua"
+local lmUrl = "https://raw.githubusercontent.com/justskitpy/image/main/producthelperr.lua"
 
 local inicfg = require 'inicfg'
 local ini = inicfg.load({
